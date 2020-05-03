@@ -1,0 +1,20 @@
+---
+  - name: Install-Java
+    hosts: demo-servers
+    tasks:
+      - name: Apt update
+        apt:
+          update_cache: yes
+      - name: Install Python
+        apt:
+          name: python3
+          state: present
+      - name: Install java
+        apt:
+          name: openjdk-8-jdk
+          state: present
+        # shell: apt install -y openjdk-8-jdk
+        # args:
+        #   executable: /bin/bash
+      #   register: result
+      # - debug: msg="{{ result.stdout }}"

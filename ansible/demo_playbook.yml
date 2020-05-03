@@ -1,0 +1,21 @@
+---
+- hosts: appserver
+  tasks:
+  - name: create a file on a app machine
+    file:
+      dest: /tmp/app-file
+      state: '{{file_state}}'
+
+- hosts: dbserver
+  tasks:
+  - name: create file on db machines
+    file:
+      dest: /tmp/db-file
+      state: '{{file_state}}'
+
+- hosts: demo-servers:!dbserver
+  tasks:
+  - name: create file on app machines
+    file:
+      dest: /tmp/app-not-db-file
+      state: '{{file_state}}'

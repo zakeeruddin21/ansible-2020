@@ -1,0 +1,14 @@
+[demo-servers:children]
+appserver
+dbserver
+
+[appserver]
+192.168.3.4 ansible_ssh_private_key_file=/Users/zakeeruddin/Documents/workspace/vagrant-demo/.vagrant/machines/demo1/virtualbox/private_key
+192.168.3.5 ansible_ssh_private_key_file=/Users/zakeeruddin/Documents/workspace/vagrant-demo/.vagrant/machines/demo2/virtualbox/private_key
+192.168.3.6 ansible_ssh_private_key_file=/Users/zakeeruddin/Documents/workspace/vagrant-demo/.vagrant/machines/demo3/virtualbox/private_key
+
+[dbserver]
+192.168.3.6 ansible_ssh_private_key_file=/Users/zakeeruddin/Documents/workspace/vagrant-demo/.vagrant/machines/demo3/virtualbox/private_key
+
+[all:vars]
+ansible_user=vagrant
